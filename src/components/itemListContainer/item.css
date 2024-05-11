@@ -1,0 +1,28 @@
+.individualCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: #37a0bb 0px 2px 1px 0px, #37a0bb 0px 3px 16px 1px;
+    height: 100%;
+}
+.imageCard{
+    width: 175px;
+}
+
+.nameCard{
+    font-size: x-large;
+}
+
+.priceCard{
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+}
+
+.brandCardImage{
+    width: 40px;
+    border-radius: 10px;
+    border: #37a0bb solid 1px;
+}

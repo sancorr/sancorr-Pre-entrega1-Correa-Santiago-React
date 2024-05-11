@@ -1,4 +1,26 @@
-
+/* Alinea la imagen a la izquierda */
+.navbar .container-fluid {
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro */
+}
+.logo {
+    width: 80px;
+    height: 85px;
+    border-radius: 25px;
+}
+  
+/* Alinea los elementos de la lista al centro */
+.navbar-collapse {
+    flex-grow: 1; /* Permite que el div se expanda y empuje a CartWidget hacia la derecha */
+    display: flex;
+    justify-content: space-evenly; /* Alinea horizontalmente al centro */
+}
+  
+  /* Alinea CartWidget a la derecha */
+.navbar .cart-widget {
+    margin-left: auto; /* Empuja CartWidget hacia la derecha */
+}
+  
 .navbar-nav li{
-    margin: 60px 20px;
+    margin: 40px 50px;
 }

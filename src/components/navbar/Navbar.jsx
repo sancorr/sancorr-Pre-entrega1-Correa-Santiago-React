@@ -1,18 +1,18 @@
-import ImgNavbar from "../../assets/wildCapital-removebg-preview.png";
+import ImgNavbar from "../../assets/sac.png";
 import CartWidget from "./Cartwidget";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
-        <div>
-          <img
-            style={{ width: "200px" }}
+        <Link to="/">
+          <img className="logo"
             src={ImgNavbar}
             alt="Logo de Wild Capital"
           />
-        </div>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -26,14 +26,20 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item">Celulares</li>
-            <li className="nav-item">Prestamos</li>
-            <li className="nav-item">Electronica</li>
+            <Link to="/category/celulares" >
+             <li className="nav-item">Celulares</li>
+            </Link>
+            <Link to="/category/computadoras">
+             <li className="nav-item">Computadoras</li>
+            </Link>
+            <Link to="/category/electronica">
+             <li className="nav-item">Electronica</li>
+            </Link>
           </ul>
         </div>
+       <CartWidget className="cart-widget" />
       </div>
       
-      <CartWidget />
     </nav>
   );
 };
