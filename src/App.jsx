@@ -1,27 +1,38 @@
-import Navbar from './components/navbar/Navbar'
-import Itemlistcontainer from './components/itemListContainer/Itemlistcontainer'
-import ItemCount from './components/itemCount/ItemCount'
-import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer'
-import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Navbar from "./components/navbar/Navbar";
+import Itemlistcontainer from "./components/itemListContainer/Itemlistcontainer";
+import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import EjemploFormulario from "./components/ejemploFormulario/EjemploFormulario";
+import { CartProvider } from "./context/CartContext";
+import Cart from "./components/cart/Cart";
+import "./App.css";
 
 function App() {
-  
-
   return (
     <BrowserRouter>
-      <Navbar />
+      <CartProvider>
+        <Navbar />
 
-      <Routes>
-        
-        <Route path='/' element= { <Itemlistcontainer greeting = "Este va a ser mi Ecommerce para portfolio" /> } />
-        <Route path='/category/:idCategory' element={ <Itemlistcontainer greeting = "Este va a ser mi Ecommerce para portfolio" /> } />
-        <Route path='/detail/:idProduct' element={ <ItemDetailContainer /> }/>
-
-      </Routes>
-
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Itemlistcontainer />
+            }
+          />
+          <Route
+            path="/category/:idCategory"
+            element={
+              <Itemlistcontainer />
+            }
+          />
+          <Route path="/detail/:idProduct" element={<ItemDetailContainer />} />
+          <Route path="/cart" element= { <Cart />}/>
+          <Route path="/ejemplo" element={<EjemploFormulario />} />
+        </Routes>
+      </CartProvider>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

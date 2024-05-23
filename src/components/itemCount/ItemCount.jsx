@@ -1,35 +1,45 @@
 import { useState } from "react"
+import GoToCart from "../cart/GoToCart"
+import CounterView from "./CounterView"
 import './itemCount.css'
 
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, addProduct }) => {
  const [ count, setCount] = useState(1)
 
- const restar = () =>{
+ const [ showCunt, setShowCount ] = useState(true)
+
+ const handleCLickReduce = () =>{
     if(count > 1){
         setCount(count - 1)
     }
  }
 
- const sumar = () =>{
+ const handleClickAdd = () =>{
     if(count < stock){
        setCount( count + 1)
 
     }
  }
 
- const agregarAlCarrito = ()=>{
-    console.log(count);
+ const handleClickAddCart = ()=>{
+   addProduct(count);
+   setShowCount(false)
+   
  }
+
+ 
+ 
  
 
   return (
-    <div className="footerCountButtons">
-        <button className="restButton" onClick={restar}> - </button>
-        <p className="count">{count}</p>
-        <button className="addButton" onClick={sumar}> + </button>
-        <button className="cartButton" onClick={ agregarAlCarrito }>Agregar al carrito</button>
-    </div>
+    <>
+     
+      { 
+      showCunt ? <CounterView handleCLickReduce={handleCLickReduce} handleClickAdd={handleClickAdd} handleClickAddCart={handleClickAddCart} count={count} /> : <GoToCart />
+      }
+      
+    </>
   )
 }
 

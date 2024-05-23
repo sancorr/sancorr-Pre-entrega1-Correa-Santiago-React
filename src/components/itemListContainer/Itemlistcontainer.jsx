@@ -1,19 +1,24 @@
 import { useEffect, useState } from 'react';
 import getProducts from '../../data/data';
 import ItemList from './ItemList';
+import Loading from '../loaderComponent/Loading';
 import { useParams } from 'react-router-dom';
 
 import './itemlistcontainer.css'
 
-const Itemlistcontainer = (prop) => {
-  const { greeting } = prop
+const Itemlistcontainer = () => {
+  
   
   const [ products, setProducts ] = useState([])
+
+  const [ loading, setLoading ] = useState(false)
 
   const { idCategory } = useParams()
   
 
   useEffect(() => {
+    //mostrar loading
+    setLoading(true)
     //consumir la promesa
     getProducts()
     .then((respuesta)=>{
@@ -28,6 +33,8 @@ const Itemlistcontainer = (prop) => {
       console.log(error);
     })
     .finally(()=>{
+      //ocultar loading
+      setLoading(false)
       console.log("Finalizo la promesa");
     })
 
@@ -35,8 +42,13 @@ const Itemlistcontainer = (prop) => {
 
   return (
     <div className="itemListContainer" >
-      <h1 className="titleListContainer">{greeting}</h1>
-      <ItemList products = {products} />
+     
+      <h1 className="titleListContainer">{ idCategory ? `${idCategory}` : 'Bienvenidos a mi ecommerce'}</h1>
+            
+      {
+        loading ? <Loading /> : <ItemList products = {products} />
+      }
+      
       
     </div>
   )

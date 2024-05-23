@@ -15,7 +15,7 @@ const products = [
         description: "Descripcion producto 2",
         price: 2000,
         category: "celulares",
-        stock: 10,
+        stock: 5,
         image: "/image/iphone.jpg"
     },
     {
@@ -28,7 +28,7 @@ const products = [
         image: "/image/iphone.jpg"
     },
     {
-        id: "a",
+        id: "a4",
         name: "Iphone 12 Pro Max",
         description: "Descripcion producto 4",
         price: 2000,
@@ -766,7 +766,7 @@ const getProducts = () => {
 
       setTimeout(()=>{
          resolve(products) 
-        }, 3000)
+        }, 1500)
     })
 }
 
