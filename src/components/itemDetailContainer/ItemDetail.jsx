@@ -1,12 +1,15 @@
 import { CartContext } from "../../context/CartContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import ItemCount from "../itemCount/ItemCount";
+
 
 import "./itemDetail.css";
 
 const ItemDetail = ({ name, description, price, category, image, stock, id }) => {
+  const [updatedStock, setUpdatedStock] = useState(0)
+  
 
-  const { addProductToCart} = useContext(CartContext);
+  const { addProductToCart, cart} = useContext(CartContext);
 
   const addProduct = (count) =>{
     //estructura del objeto que va al carrito
@@ -15,13 +18,27 @@ const ItemDetail = ({ name, description, price, category, image, stock, id }) =>
     addProductToCart(productCart);
   }
 
+  useEffect(()=> {
+
+    const existsInCart = cart.find((item) => item.id === id)
+
+    if (existsInCart) {
+      
+      setUpdatedStock(stock - existsInCart.quantity)
+
+   } else {
+      setUpdatedStock(stock)
+
+    }
+    
+  }, [id])
 
 
   return (
     <div className="detailContenedor">
       <article className="articleContenedor">
         <div className="articleImage">
-          <img src={image} alt={name} />
+          <img className="image" src={image} alt={name} />
         </div>
 
         <section className="sectionContenedor">
@@ -30,14 +47,17 @@ const ItemDetail = ({ name, description, price, category, image, stock, id }) =>
           </header>
 
           <div className="sectionParrafo">
-           <p>$ {price}</p>
            <p>{description}</p>
-           <p>{category}</p>
+           <p>$ {price}</p>
+           <p>Categoria: {category}</p>
           </div>
 
-          <footer className="footerCount">
-            <ItemCount stock={stock} addProduct={addProduct} />
-          </footer>
+          <div className="footerCount">
+            {
+              updatedStock > 1 ? <ItemCount stock={updatedStock} addProduct={addProduct} /> :
+              <p>Sin Stock</p>
+            }
+          </div>
 
         </section>
       </article>

@@ -6,15 +6,25 @@
 .cart-icon{
  width: 3em;
  height: 3em;
+ color: white;
+ background-color: #37a0bb;
+ padding: 10px 10px;
+ border-radius: .375rem;
+}
+
+.cart-countContainer{
+    display: flex;
+    min-width: 100px;
+    
 }
 
 .cart-count {
     position: absolute;
-    top: -10px;
+    top: -20px;
     right: 10px;
     background-color:#37a0bb ;
-    color: black;
+    color: white;
     border-radius: 20%;
-    padding: 0em 0.3em;
-    font-size: 1.2em;
+    font-size: 1em;
+    padding: 10px 10px;
 }

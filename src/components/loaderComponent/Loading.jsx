@@ -1,13 +1,14 @@
-import { RingLoader } from "react-spinners"
+import { RingLoader } from "react-spinners";
+import "./loading.css";
 const Loading = () => {
-    
   return (
-    <div>
-    <h5>Un momento...</h5>
-    <RingLoader  color="#36d7b7" />
-    <h6>Estamos trabajando para mejorar su experiencia</h6>
+    <div className="loadingGrid">
+      <div className="loading-container">
+        <RingLoader className="loading-component" color="#36d7b7" size={150} />
+        <h5 className="loading-containerTitle">Un momento...</h5>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

@@ -1,0 +1,19 @@
+.finishButton{
+    border-radius: 10px;
+    margin: 0px 20px;
+    background-color: #212529;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;  
+}
+
+.finishButton:hover{
+    background-color: #37a0bb;
+    transition: ease-in-out 1s;
+    opacity: .95;
+}
+
+.finishIcon{
+    margin: 0 10px 0 0;
+}

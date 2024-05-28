@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
+import { BsSendCheckFill } from "react-icons/bs";
+import './goToCart.css'
 
 const GoToCart = () => {
   return (
     <Link to="/cart">
-      <button>Terminar compra</button>
+      <button className="finishButton">
+        <BsSendCheckFill className="finishIcon" />
+        Terminar compra
+        </button>
     </Link>
   )
 }

@@ -2,6 +2,7 @@ import { BsCart4 } from "react-icons/bs";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { MdAddShoppingCart } from "react-icons/md";
 import "./cartWidget.css"
 
 const CartWidget = () => {
@@ -13,7 +14,16 @@ const CartWidget = () => {
   
   return (
     <Link className="cart-icon-container" to= "/cart">  
-      {totalQuantity() === 0 ? <BsCart4 className="cart-icon"/> : <span className="cart-count">{totalQuantity()}</span>}
+      {totalQuantity() === 0 ? 
+       <BsCart4 className="cart-icon"/> : 
+       <div className="cart-countContainer">
+
+          <span className="cart-count">{totalQuantity()}
+           <MdAddShoppingCart className="cart-iconAdd" />
+          </span>
+
+       </div>        
+       }
     </Link>
   );
 };

@@ -1,3 +1,6 @@
+import { addDoc, collection } from "firebase/firestore"
+import db from "../db/db.js";
+
 const products = [
     //Iphone
     {
@@ -759,24 +762,15 @@ const products = [
 
 ]
 
-const getProducts = () => {
-    // resolve- la ejecutamos cuando queremos que la promesa se resuelva
-    // reject- la ejecutamos cuando queremos que la promesa falle
-    return new Promise((resolve, reject) => {
 
-      setTimeout(()=>{
-         resolve(products) 
-        }, 1500)
-    })
+//Subir array de productos a DB
+const seedProducts = () =>{
+    products.map(({id,...rest})=>{
+        addDoc(collection(db,"products"),rest)
+    });
 }
+seedProducts()
 
-const getDetailProductById = (productId) =>{
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(products.find( producto => producto.id === productId))
-        }, 2000)
-    })
-}
 
-export default getProducts
-export { getDetailProductById }
+
+

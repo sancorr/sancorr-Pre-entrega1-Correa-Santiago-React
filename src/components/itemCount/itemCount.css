@@ -1,8 +1,17 @@
 .footerCountButtons{
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    gap: 20px;
+
 }
+.addReduceCounter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .footerCountButtons p{
     margin-bottom: 0;
 }
@@ -11,20 +20,34 @@
     padding: 5px 17px;
     border-radius: 10px;
     margin: 0px 20px;
-    background-color: #37a0bb ;
+    background-color: #212529 ;
+    color: #37a0bb;
     border: none;
 }
 .addButton{
     padding: 5px 17px;
     border-radius: 10px;
     margin: 0px 20px;
-    background-color: #37a0bb ;
+    background-color: #212529 ;
+    color: #37a0bb;
     border: none;
 }
 .cartButton{
     padding: 5px 17px;
     border-radius: 10px;
     margin: 0px 20px;
-    background-color: #37a0bb ;
+    background-color: #212529;
+    color: white;
     border: none;
+    padding: 10px;
+    
+}
+.cartButtonIcon{
+    margin: 0 5px 0 0;
+}
+
+.cartButton:hover{
+    background-color: #37a0bb;
+    transition: ease-in-out 1s;
+    opacity: .95;
 }

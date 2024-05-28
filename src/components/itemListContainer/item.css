@@ -1,28 +1,38 @@
-.individualCard{
+.item-individualCard{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
+    border-radius: .375rem;
+    border: 1px solid rgba(0, 0, 0, .175);
     padding: 10px;
-    box-shadow: #37a0bb 0px 2px 1px 0px, #37a0bb 0px 3px 16px 1px;
+    /* box-shadow: #37a0bb 0px 2px 1px 0px, #37a0bb 0px 3px 16px 1px; */
     height: 100%;
+    color: #212529;
+    
 }
-.imageCard{
+.item-imageCard{
     width: 175px;
+    
 }
 
-.nameCard{
+.item-nameCard{
     font-size: x-large;
+   
 }
 
-.priceCard{
+.item-priceCard{
     font-size: larger;
     display: flex;
     justify-content: center;
+    font-size: medium;
+    
 }
 
-.brandCardImage{
+.item-brandCardImage{
     width: 40px;
     border-radius: 10px;
     border: #37a0bb solid 1px;
+}
+.item-clickeableCard{
+    text-decoration: none;
 }

@@ -2,9 +2,9 @@ import Navbar from "./components/navbar/Navbar";
 import Itemlistcontainer from "./components/itemListContainer/Itemlistcontainer";
 import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import EjemploFormulario from "./components/ejemploFormulario/EjemploFormulario";
 import { CartProvider } from "./context/CartContext";
 import Cart from "./components/cart/Cart";
+import Footer from "./components/footer/Footer";
 import "./App.css";
 
 function App() {
@@ -28,8 +28,8 @@ function App() {
           />
           <Route path="/detail/:idProduct" element={<ItemDetailContainer />} />
           <Route path="/cart" element= { <Cart />}/>
-          <Route path="/ejemplo" element={<EjemploFormulario />} />
         </Routes>
+        <Footer/>
       </CartProvider>
     </BrowserRouter>
   );

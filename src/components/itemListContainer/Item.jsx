@@ -6,14 +6,14 @@ import './item.css'
 
 const Item = ({ product }) => {
   return (
-    <Link to={`/detail/${product.id}`}>
-      <div className="individualCard">
-        <div className="brandCard">
-          <img className="brandCardImage" src={ImgCard} />
+    <Link className="item-clickeableCard" to={`/detail/${product.id}`}>
+      <div className="item-individualCard">
+        <div className="item-brandCard">
+          <img className="item-brandCardImage" src={ImgCard} />
         </div>
-          <img className="imageCard" src={product.image}  />
-          <p className="nameCard">{product.name}</p>
-          <span className="priceCard"> $ {product.price}</span>
+          <img className="item-imageCard" src={product.image}  />
+          <h2 className="item-nameCard">{product.name}</h2>
+          <span className="item-priceCard"> precio: ${product.price}</span>
         </div>
     </Link>
   )

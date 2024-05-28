@@ -14,30 +14,11 @@ const CartProvider = ({ children }) => {
         
         //sumar cantidad en caso de que el prod este en el carrito previamente
         const PreviousProduct = cart.filter( product => product.id === newProduct.id);
-        if (PreviousProduct.length > 0) {
-            // Detectar Stock del producto////
-            const updatedCart = cart.map( /* product => product.id === newProduct.id ? { ...product, quantity: product.quantity + newProduct.quantity } : product */ 
-             (product)=>{
-                if(product.id === newProduct.id){
-                    const sumQuantity = product.quantity + newProduct.quantity
-                    if (sumQuantity > product.stock) {
-                        return { ...product, outOfStock: true}
-                        //return alert("fuera de stock")
-                    } else{
-                        return {...product, quantity: product.quantity + newProduct.quantity}
-                    }
-                }else{
-                    product
-                }
-            } );
-            console.log("updatedCart:", updatedCart);
-            if (updatedCart[0].outOfStock) {
-                return alert("Sin stock")
-            } else {
-                setCart(updatedCart)
-            }
-        } else {
-            setCart([ ...cart, newProduct ])
+        if(PreviousProduct.length > 0){
+            const updatedCart = cart.map( product => product.id === newProduct.id ? {...product, quantity: product.quantity + newProduct.quantity} : product);
+            setCart(updatedCart)
+        } else{
+            setCart([...cart, newProduct])
         }
     }
     

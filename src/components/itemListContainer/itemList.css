@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly; /* Opcional: ajusta la alineación horizontal */
+    text-decoration: none;
   }
   
   .itemWrapper {

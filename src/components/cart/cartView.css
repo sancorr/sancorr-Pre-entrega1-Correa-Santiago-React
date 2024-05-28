@@ -1,0 +1,70 @@
+.table-cartTableContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-title{
+    text-align: center;
+}
+
+.table-cartTable{
+    margin: 30px 80px;
+}
+
+.table-cartTable table{
+    width: 100%;
+}
+
+.table-cartTableHeadElements th{
+    padding: 0px 5px;
+}
+
+.dark{
+    background-color: #212529;
+    color: white;
+}
+
+.table-cartTableBodyElements td img{
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.table-cartTableBodyElementsDeleteProductButton{
+    background-color:transparent;
+    color:  #212529;
+    border: none;
+}
+
+.table-cartTableBodyFooterElements-total{
+    padding-right: 10px;
+    text-align: right;
+    margin: 0px 80px;
+    
+}
+
+.cart-cleanCartButton{
+    align-self: center;    
+    margin: 10px 0;
+
+}
+
+.cart-cleanCartButton button{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    margin: 0px 20px;
+    background-color: #212529;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;     
+}
+
+.cart-cleanCartButton button:hover{
+    background-color: #37a0bb;
+    transition: ease-in-out 1s;
+    opacity: .95;
+}
+
+

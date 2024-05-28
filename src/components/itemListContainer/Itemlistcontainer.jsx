@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
-import getProducts from '../../data/data';
 import ItemList from './ItemList';
 import Loading from '../loaderComponent/Loading';
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import BreadCrumb from './BreadCrumb.jsx';
+import db from '../../db/db.js';
+
 
 import './itemlistcontainer.css'
 
@@ -14,39 +17,61 @@ const Itemlistcontainer = () => {
   const [ loading, setLoading ] = useState(false)
 
   const { idCategory } = useParams()
-  
+
+  //funcion para mostrar el objeto apropiadamente desde la base de datos (itemListContainer)
+ const showObject = (arr)=> {
+
+  const data = arr.docs.map((product)=>{
+    //se le da formato a la dat recibida de la base de datos
+    return { id: product.id, ...product.data()}
+  })
+  setProducts(data)
+}
+ 
+
+  const getProducts = ()=>{
+    const productsRef = collection(db,"products")
+    setLoading(true)
+    getDocs(productsRef)
+     .then((productsDb)=> {
+      showObject(productsDb)
+     })
+     //Esto deberia informar al usuario
+     .catch((err)=> console.log(err))
+     .finally(()=>setLoading(false))
+
+  }
+
+  const getProductsByCategory = ()=>  {
+    const productsRef = collection(db,"products")
+    setLoading(true)
+    const q = query(productsRef, where("category", "==", idCategory))
+    getDocs(q)
+     .then((productsDb)=> {
+      //se le da formato a la dat recibida de la base de datos
+      showObject(productsDb)
+     })
+     //esto deberia informar al usuario
+     .catch((err)=> console.log(err))
+     .finally(()=> setLoading(false))
+  }
 
   useEffect(() => {
-    //mostrar loading
-    setLoading(true)
-    //consumir la promesa
-    getProducts()
-    .then((respuesta)=>{
-      if (idCategory) {
-        const productsFilter = respuesta.filter( (productRes) => productRes.category === idCategory )
-        setProducts(productsFilter);
-      } else {
-        setProducts(respuesta);
-      }
-    })
-    .catch((error)=>{
-      console.log(error);
-    })
-    .finally(()=>{
-      //ocultar loading
-      setLoading(false)
-      console.log("Finalizo la promesa");
-    })
-
-  }, [ idCategory ])
+    
+    if (idCategory) {
+      getProductsByCategory()
+    }else{
+      getProducts()
+    }
+  }, [ idCategory ]);
 
   return (
     <div className="itemListContainer" >
      
-      <h1 className="titleListContainer">{ idCategory ? `${idCategory}` : 'Bienvenidos a mi ecommerce'}</h1>
+      <h1 className="titleListContainer">{ idCategory ? `${idCategory}` : 'Bienvenidos!'}</h1>
             
       {
-        loading ? <Loading /> : <ItemList products = {products} />
+        loading ? <Loading /> : <ItemList products = {products}/>
       }
       
       

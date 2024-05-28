@@ -32,6 +32,7 @@
 .navbar-nav li{
     margin: 40px 60px;
     position: relative;
+    color: #212529;
 }
 
 .nav-item {
@@ -44,7 +45,7 @@
 }
 
 .nav-item:hover {
-    color: #2a8ca1;
+    color: #212529;
 }
 
 /* Línea animada */
@@ -55,7 +56,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #37a0bb;
+    background-color: #212529;
     transform: translateX(var(--hover-position, 0px));
     transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
     visibility: hidden; /* Oculta la línea por defecto */
@@ -73,5 +74,5 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #37a0bb;
+    background-color: #212529;
 }
