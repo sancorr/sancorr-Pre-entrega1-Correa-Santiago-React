@@ -19,14 +19,14 @@ const Itemlistcontainer = () => {
   const { idCategory } = useParams()
 
   //funcion para mostrar el objeto apropiadamente desde la base de datos (itemListContainer)
- const showObject = (arr)=> {
+ /*  const showObject = (arr)=> {
 
   const data = arr.docs.map((product)=>{
     //se le da formato a la dat recibida de la base de datos
     return { id: product.id, ...product.data()}
   })
   setProducts(data)
-}
+ } */
  
 
   const getProducts = ()=>{
@@ -34,7 +34,11 @@ const Itemlistcontainer = () => {
     setLoading(true)
     getDocs(productsRef)
      .then((productsDb)=> {
-      showObject(productsDb)
+      const data = productsDb.docs.map((product)=>{
+        //se le da formato a la dat recibida de la base de datos
+        return { id: product.id, ...product.data()}
+      })
+      setProducts(data)
      })
      //Esto deberia informar al usuario
      .catch((err)=> console.log(err))
@@ -49,7 +53,11 @@ const Itemlistcontainer = () => {
     getDocs(q)
      .then((productsDb)=> {
       //se le da formato a la dat recibida de la base de datos
-      showObject(productsDb)
+      const data = productsDb.docs.map((product)=>{
+        //se le da formato a la dat recibida de la base de datos
+        return { id: product.id, ...product.data()}
+      })
+      setProducts(data)
      })
      //esto deberia informar al usuario
      .catch((err)=> console.log(err))
@@ -68,7 +76,7 @@ const Itemlistcontainer = () => {
   return (
     <div className="itemListContainer" >
      
-      <h1 className="titleListContainer">{ idCategory ? `${idCategory}` : 'Bienvenidos!'}</h1>
+      <h1 className="titleListContainer">{ idCategory ? <BreadCrumb idCategory={idCategory} /> : 'Bienvenidos!'}</h1>
             
       {
         loading ? <Loading /> : <ItemList products = {products}/>

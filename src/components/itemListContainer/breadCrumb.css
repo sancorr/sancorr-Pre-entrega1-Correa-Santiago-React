@@ -1,0 +1,16 @@
+.breadcrumb{
+    margin: 0 10px;
+    
+}
+
+.breadcrumb-item {
+   font-size: large;
+
+}
+
+  
+.breadcrumb-item::after {
+    
+    margin: 0 8px;
+}
+  

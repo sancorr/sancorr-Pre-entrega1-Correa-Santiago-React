@@ -1,62 +1,20 @@
 import { Link } from "react-router-dom";
+import './breadCrumb.css'
 
-const BreadCrumb = () => {
+const BreadCrumb = ({ idCategory }) => {
   return (
-    <div>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <Link to="/">
-            <li class="breadcrumb-item active" aria-current="page">
-              Home
-            </li>
-          </Link>
-        </ol>
-      </nav>
-
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <Link to="/">
-            <li class="breadcrumb-item">Home</li>
-          </Link>
-          <Link to="/celulares">
-            <li class="breadcrumb-item active" aria-current="page">
-              Celulares
-            </li>
-          </Link>
-        </ol>
-      </nav>
-
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <Link to="/">
-            <li class="breadcrumb-item">Home</li>
-          </Link>
-          <Link to="/celulares">
-            <li class="breadcrumb-item">Celulares</li>
-          </Link>
-          <Link to="/computadoras">
-            <li class="breadcrumb-item">Computadoras</li>
-          </Link>
-        </ol>
-      </nav>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-        <Link to="/">
-            <li class="breadcrumb-item">Home</li>
-          </Link>
-          <Link to="/celulares">
-            <li class="breadcrumb-item">Celulares</li>
-          </Link>
-          <Link to="/computadoras">
-            <li class="breadcrumb-item">Computadoras</li>
-          </Link>
-          <Link to="/electronica">
-            <li class="breadcrumb-item">Electronica</li>
-          </Link>
-        </ol>
-      </nav>
-    </div>
+    <nav >
+      <ol className="breadcrumb">
+        <li className="breadcrumb-item">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="breadcrumb-item">
+          <Link to={`/category/${idCategory}`}>{idCategory}</Link>
+        </li>
+      </ol>
+    </nav>
   );
 };
 
 export default BreadCrumb;
+

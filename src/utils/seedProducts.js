@@ -769,7 +769,8 @@ const seedProducts = () =>{
         addDoc(collection(db,"products"),rest)
     });
 }
-seedProducts()
+
+//seedProducts()
 
 
 
