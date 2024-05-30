@@ -22,6 +22,7 @@ const ItemDetailContainer = () => {
       const data = {id:productDb.id, ...productDb.data()}
       setProduct(data)
      })
+     //informar este error para que no muestre algo que no existe
      .catch((err)=>console.log(err))
      .finally((productDb)=>setLoading(false))
 

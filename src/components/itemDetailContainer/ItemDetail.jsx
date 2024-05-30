@@ -6,7 +6,7 @@ import ItemCount from "../itemCount/ItemCount";
 import "./itemDetail.css";
 
 const ItemDetail = ({ name, description, price, category, image, stock, id }) => {
-  const [updatedStock, setUpdatedStock] = useState(0)
+  /* const [updatedStock, setUpdatedStock] = useState(0) */
   
 
   const { addProductToCart, cart} = useContext(CartContext);
@@ -18,7 +18,7 @@ const ItemDetail = ({ name, description, price, category, image, stock, id }) =>
     addProductToCart(productCart);
   }
 
-  useEffect(()=> {
+  /* useEffect(()=> {
 
     const existsInCart = cart.find((item) => item.id === id)
 
@@ -31,7 +31,7 @@ const ItemDetail = ({ name, description, price, category, image, stock, id }) =>
 
     }
     
-  }, [id])
+  }, [id]) */
 
 
   return (
@@ -53,10 +53,11 @@ const ItemDetail = ({ name, description, price, category, image, stock, id }) =>
           </div>
 
           <div className="footerCount">
-            {
-              updatedStock > 1 ? <ItemCount stock={updatedStock} addProduct={addProduct} /> :
+          <ItemCount stock={stock} addProduct={addProduct} />
+           {/*  {
+              updatedStock > 1 ?  :
               <p>Sin Stock</p>
-            }
+            } */}
           </div>
 
         </section>

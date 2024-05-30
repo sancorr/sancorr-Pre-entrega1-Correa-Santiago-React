@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./cartView.css";
 
 const CartView = () => {
@@ -47,6 +48,11 @@ const CartView = () => {
         <p className="table-cartTableBodyFooterElements-total dark">
           <strong>TOTAL:${totalPrice()} </strong>
         </p>
+      </div>
+      <div className="cart-confirmButton">
+        <Link to="/checkout">
+         <button>Confirmar Compra</button>
+        </Link>
       </div>
       <div className="cart-cleanCartButton">
         <button onClick={deleteAllProductsInCart}>
