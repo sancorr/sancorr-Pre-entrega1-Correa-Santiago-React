@@ -1,4 +1,4 @@
-import { mixed, object, string } from "yup";
+import { object, string } from "yup";
 
 let buyerSchema = object({
     firstName: string().required(),
@@ -6,16 +6,16 @@ let buyerSchema = object({
     email:string().email().required() ,
     confirmEmail: string().email().required(),
     address: string().required(),
-    phone: mixed().required(),
+    phone: string().required().matches(/^[0-9]+$/,"el telefono solo debe contener numeros")
 })
 
 export const formValidation= async (dataForm) => {
 
     try {
-        await buyerSchema.validate(dataForm)    
+        await buyerSchema.validate(dataForm, { abortEarly: false })    
         return { status: "success" }
     } catch (error) {
-        return { status:"Error", message: error.message} 
+        return { status:"Error", message: error.errors.join(", ")} 
 
     }
 }

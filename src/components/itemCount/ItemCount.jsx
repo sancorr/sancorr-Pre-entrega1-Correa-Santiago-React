@@ -28,14 +28,13 @@ const ItemCount = ({ stock, addProduct }) => {
    
  }
 
- 
- 
- 
+
 
   return (
     <>
      
       { 
+      
       showCunt ? <CounterView handleCLickReduce={handleCLickReduce} handleClickAdd={handleClickAdd} handleClickAddCart={handleClickAddCart} count={count} /> : <GoToCart />
       }
       

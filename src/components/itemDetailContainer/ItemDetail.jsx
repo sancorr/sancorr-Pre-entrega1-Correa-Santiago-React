@@ -50,10 +50,14 @@ const ItemDetail = ({ name, description, price, category, image, stock, id }) =>
            <p>{description}</p>
            <p>$ {price}</p>
            <p>Categoria: {category}</p>
+           <p>stock disponible: {stock}</p>
           </div>
 
           <div className="footerCount">
-          <ItemCount stock={stock} addProduct={addProduct} />
+            {
+              stock === 0 ? <p>Producto sin stock</p> :
+             <ItemCount stock={stock} addProduct={addProduct} />
+            }
            {/*  {
               updatedStock > 1 ?  :
               <p>Sin Stock</p>

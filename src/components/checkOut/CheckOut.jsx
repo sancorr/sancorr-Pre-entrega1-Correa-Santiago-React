@@ -6,7 +6,7 @@ import db from "../../db/db.js";
 import { Link } from "react-router-dom";
 import FormView from "./FormView";
 import { formValidation } from "../../utils/validationYup.js";
-import { CgArrowAlignH } from "react-icons/cg";
+
 
 const CheckOut = () => {
   const { cart, totalPrice, deleteAllProductsInCart } = useContext(CartContext);
