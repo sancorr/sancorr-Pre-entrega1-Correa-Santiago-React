@@ -71,3 +71,5 @@ Santiago Alberto Correa
 - **Teléfono**: +54 261 2531367
 
 Enlace al proyecto: [https://github.com/sancorr/sancorr-Pre-entrega1-Correa-Santiago-React](https://github.com/sancorr/sancorr-Pre-entrega1-Correa-Santiago-React)
+
+Enlace a deploy: [https://sancorr-pre-entrega1-correa-santiago-react.vercel.app/](https://sancorr-pre-entrega1-correa-santiago-react.vercel.app/)
