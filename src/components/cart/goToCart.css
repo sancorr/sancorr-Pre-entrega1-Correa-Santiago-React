@@ -17,3 +17,11 @@
 .finishIcon{
     margin: 0 10px 0 0;
 }
+
+.goToCart-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}

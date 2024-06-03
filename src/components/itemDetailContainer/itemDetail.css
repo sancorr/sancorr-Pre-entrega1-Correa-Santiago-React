@@ -5,12 +5,8 @@
   border: 1px solid rgba(0, 0, 0, .175);
   border-radius: .375rem;
   margin: 0 70px;
-  padding: 70px  0;
+  padding: 70px 0;
   background-color: rgb(255, 238, 245);
-}
-
-.image{
-  border-radius: .375rem;
 }
 
 .articleContenedor {
@@ -18,6 +14,22 @@
   justify-content: space-evenly;
   gap: 90px;
   width: 100vw;
+}
+
+.articleImage {
+  width: 300px; /* Fija el ancho del contenedor de la imagen */
+  height: 300px; /* Fija la altura del contenedor de la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ajusta la imagen para que se contenga dentro del contenedor sin recortarse */
+  border-radius: .375rem;
+  margin-left: 10px;
 }
 
 .sectionContenedor {

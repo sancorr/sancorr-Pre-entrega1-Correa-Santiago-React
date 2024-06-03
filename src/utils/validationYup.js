@@ -1,12 +1,12 @@
 import { object, string } from "yup";
 
 let buyerSchema = object({
-    firstName: string().required(),
-    lastName: string().required() ,
-    email:string().email().required() ,
-    confirmEmail: string().email().required(),
-    address: string().required(),
-    phone: string().required().matches(/^[0-9]+$/,"el telefono solo debe contener numeros")
+    firstName: string().required("Nombre es un campo requerido"),
+    lastName: string().required("Apellido es un campo requerido") ,
+    email:string().email().required("Email es un campo requerido") ,
+    confirmEmail: string().email().required("Debe confirmar su Email"),
+    address: string().required("Dirección es un campo requerido"),
+    phone: string().required("El teléfono es un campo requerido").matches(/^[0-9]+$/, "solo debe contener numeros.")
 })
 
 export const formValidation= async (dataForm) => {

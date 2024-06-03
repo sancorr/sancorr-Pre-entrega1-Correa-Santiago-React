@@ -1,36 +1,39 @@
+import './formView.css'
 
 const FormView = ({formData, handleChangeInput, handleOnSubmitForm }) => {
   
   return (
-    <form onSubmit={handleOnSubmitForm} >
-        <div>
+    <div className='form-formContainer'>
+        <form className='form' onSubmit={handleOnSubmitForm} >
+        <div className='form-inputsContainer'>
             <label htmlFor="firstName" >Nombre/s:</label>
-            <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChangeInput} />
+            <input placeholder='Tu nombre aqui' type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChangeInput} />
         </div>
-        <div>
+        <div className='form-inputsContainer'>
             <label htmlFor="lastName">Apellido:</label>
-            <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChangeInput} />
+            <input placeholder='Tu apellido aqui' type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChangeInput} />
         </div>
-        <div>
+        <div className='form-inputsContainer'>
             <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChangeInput} />
+            <input placeholder='usuario@email.com' type="email" id="email" name="email" value={formData.email} onChange={handleChangeInput} />
         </div>
-        <div>
+        <div className='form-inputsContainer'>
             <label htmlFor="emailConfirm">Confirme su Email:</label>
-            <input type="email" id="emailConfirm" name="confirmEmail" value={formData.confirmEmail} onChange={handleChangeInput} />
+            <input placeholder='usuario@email.com' type="email" id="emailConfirm" name="confirmEmail" value={formData.confirmEmail} onChange={handleChangeInput} />
         </div>
-        <div>
+        <div className='form-inputsContainer'>
             <label htmlFor="address">Dirección:</label>
-            <input type="text" id="address" name="address" value={formData.address} onChange={handleChangeInput} />
+            <input placeholder='Tu dirección aqui' type="text" id="address" name="address" value={formData.address} onChange={handleChangeInput} />
         </div>
-        <div>
+        <div className='form-inputsContainer'>
             <label htmlFor="telefono">Telefono:</label>
-            <input type="text" id="telefono" name="phone" value={formData.phone} onChange={handleChangeInput} />
+            <input placeholder='XXX-XXXXXXX' type="text" id="telefono" name="phone" value={formData.phone} onChange={handleChangeInput} />
         </div>
-        <div>
-            <button type="submit">Enviar</button>
+        <div >
+            <button className='confirmButton' type="submit">Enviar</button>
         </div>
     </form>
+    </div>
   )
 }
 

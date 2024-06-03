@@ -9,7 +9,7 @@ const Item = ({ product }) => {
     <Link className="item-clickeableCard" to={`/detail/${product.id}`}>
       <div className="item-individualCard">
         <div className="item-brandCard">
-          <img className="item-brandCardImage" src={ImgCard} />
+          <img className="item-brandCardImage" src={ImgCard} alt={product.name} />
         </div>
           <img className="item-imageCard" src={product.image}  />
           <h2 className="item-nameCard">{product.name}</h2>

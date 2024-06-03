@@ -6,6 +6,9 @@ import { CartProvider } from "./context/CartContext";
 import Cart from "./components/cart/Cart";
 import Footer from "./components/footer/Footer";
 import CheckOut from "./components/checkOut/CheckOut";
+import { ToastContainer } from "react-toastify";
+
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 
 function App() {
@@ -13,6 +16,7 @@ function App() {
     <BrowserRouter>
       <CartProvider>
         <Navbar />
+        <ToastContainer/>
 
         <Routes>
           <Route

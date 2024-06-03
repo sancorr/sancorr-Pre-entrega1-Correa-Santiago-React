@@ -1,12 +1,12 @@
 import { CartContext } from "../../context/CartContext";
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import ItemCount from "../itemCount/ItemCount";
 
 
 import "./itemDetail.css";
 
 const ItemDetail = ({ name, description, price, category, image, stock, id }) => {
-  /* const [updatedStock, setUpdatedStock] = useState(0) */
+  
   
 
   const { addProductToCart, cart} = useContext(CartContext);
@@ -18,22 +18,7 @@ const ItemDetail = ({ name, description, price, category, image, stock, id }) =>
     addProductToCart(productCart);
   }
 
-  /* useEffect(()=> {
-
-    const existsInCart = cart.find((item) => item.id === id)
-
-    if (existsInCart) {
-      
-      setUpdatedStock(stock - existsInCart.quantity)
-
-   } else {
-      setUpdatedStock(stock)
-
-    }
-    
-  }, [id]) */
-
-
+  
   return (
     <div className="detailContenedor">
       <article className="articleContenedor">
@@ -58,10 +43,6 @@ const ItemDetail = ({ name, description, price, category, image, stock, id }) =>
               stock === 0 ? <p>Producto sin stock</p> :
              <ItemCount stock={stock} addProduct={addProduct} />
             }
-           {/*  {
-              updatedStock > 1 ?  :
-              <p>Sin Stock</p>
-            } */}
           </div>
 
         </section>

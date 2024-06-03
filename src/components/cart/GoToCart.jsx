@@ -1,16 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { BsSendCheckFill } from "react-icons/bs";
-import './goToCart.css'
+import "./goToCart.css";
 
 const GoToCart = () => {
   return (
-    <Link to="/cart">
-      <button className="finishButton">
-        <BsSendCheckFill className="finishIcon" />
-        Terminar compra
+    <div className="goToCart-container">
+      <Link to="/cart">
+        <button className="finishButton">
+          <BsSendCheckFill className="finishIcon" />
+          Terminar compra
         </button>
-    </Link>
-  )
-}
+      </Link>
+      <Link to="/">Seguir viendo productos</Link>
+    </div>
+  );
+};
 
-export default GoToCart
+export default GoToCart;

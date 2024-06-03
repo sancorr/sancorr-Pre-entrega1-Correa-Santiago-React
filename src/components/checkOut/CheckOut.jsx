@@ -6,6 +6,8 @@ import db from "../../db/db.js";
 import { Link } from "react-router-dom";
 import FormView from "./FormView";
 import { formValidation } from "../../utils/validationYup.js";
+import { toast } from "react-toastify";
+import './formSuccess.css'
 
 
 const CheckOut = () => {
@@ -39,7 +41,11 @@ const CheckOut = () => {
     //primero comprobar si los campos coinciden, si no coinciden se notifica, si coinciden ->
     if (formData.email !== formData.confirmEmail) {
       //Cambiar por debida notificación
-      alert("los email no conciden");
+      if(formData.email == "" || formData.confirmEmail == ""){
+        toast.warning("Email es un campo requerido")
+      } else{
+        toast.error("Los campos de email no conciden");
+      }
     } else {
       // si coinciden -> intenta esperar la confirmacion de todos los campos requeridos con el formato correcto del formulario
       try {
@@ -51,11 +57,12 @@ const CheckOut = () => {
         } else {
           //si no se aprueban las confirmaciones ->
           // -> Cambiar por debida notificación, para notificar al usuario que el campo es requerido
-          console.log(response.message);
+          //console.log(response.message);
+          toast.warning(response.message)
         }
       } catch (error) {
         //Cambiar por debida notificación, para notificar al usuario que un error a ocurrido
-        console.log(error);
+        toast.error("Ha ocurrido un error, intente nuevamente más tarde. Disculpe las molestias")
       }
     }
   };
@@ -65,7 +72,7 @@ const CheckOut = () => {
     addDoc(orderRef, order)
       .then((response) => setIdOrder(response.id))
       //notificar al usuario de este error
-      .catch((err) => console.log("ocurrio un error"))
+      .catch((err) => toast.error("Ha ocurrido un error, intente nuevamente más tarde. Disculpe las molestias"))
       .finally(() => {
         //reducir el stock
         updateStock();
@@ -88,9 +95,10 @@ const CheckOut = () => {
           stock: cartProduct.stock - quantity,
         })
           .then(() => console.log("stock actualizado correctamente"))
-          .catch((err) => console.log(err));
+          .catch((err) => toast.error("Ha ocurrido un error, intente nuevamente más tarde. Disculpe las molestias"));
       } else {
-        console.log("Producto fuera de stock");
+        // lo contemplo por si acaso, pero el usuario no puede llegar a este punto, lo restrinjo en ItemDetail
+        toast.warning("Producto sin stock. Disculpe las molestias")
       }
     });
   };
@@ -98,10 +106,10 @@ const CheckOut = () => {
   return (
     <div>
       {idOrder ? (
-        <div>
+        <div className="successBuy">
           <h2>Compra realizada con exito 🙂 </h2>
           <p>El ID de su compra es: {idOrder}</p>
-          <Link to="/">Volver al inicio</Link>
+          <Link className="backToHome" to="/">Volver al inicio</Link>
         </div>
       ) : (
         <FormView

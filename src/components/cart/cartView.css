@@ -27,6 +27,7 @@
 .table-cartTableBodyElements td img{
     max-width: 150px;
     max-height: 150px;
+    margin-left: 10px;
 }
 
 .table-cartTableBodyElementsDeleteProductButton{
@@ -42,10 +43,14 @@
     
 }
 
-.cart-cleanCartButton{
+.cart-cleanCartButton{  
+    margin: 10px 0;
+}
+
+.table-footerButtons{
+    display: flex;
     align-self: center;    
     margin: 10px 0;
-
 }
 
 .cart-cleanCartButton button{
@@ -62,6 +67,29 @@
 }
 
 .cart-cleanCartButton button:hover{
+    background-color: #37a0bb;
+    transition: ease-in-out 1s;
+    opacity: .95;
+}
+
+.cart-confirmButton{
+    margin: 10px 0;
+}
+
+.cart-confirmButton button{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    margin: 0px 20px;
+    background-color: #212529;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer; 
+}
+
+.cart-confirmButton button:hover{
     background-color: #37a0bb;
     transition: ease-in-out 1s;
     opacity: .95;

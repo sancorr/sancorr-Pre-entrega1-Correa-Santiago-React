@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { FaTrashAlt } from "react-icons/fa";
+import { FaCheckSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./cartView.css";
 
 const CartView = () => {
-  const { cart, deleteAllProductsInCart, deleteProductById, totalPrice } = useContext(CartContext);
-  
+  const { cart, deleteAllProductsInCart, deleteProductById, totalPrice } =
+    useContext(CartContext);
+
   return (
     <div className="table-cartTableContainer">
       <h1 className="cart-title">Carrito</h1>
@@ -24,7 +26,10 @@ const CartView = () => {
           </thead>
           <tbody className="table-cartTableBody">
             {cart.map((productInCart) => (
-              <tr key={productInCart.id} className="table-cartTableBodyElements">
+              <tr
+                key={productInCart.id}
+                className="table-cartTableBodyElements"
+              >
                 <td>
                   <img src={productInCart.image} alt={productInCart.name} />
                 </td>
@@ -35,7 +40,8 @@ const CartView = () => {
                 <td>
                   <button
                     className="table-cartTableBodyElementsDeleteProductButton"
-                    onClick={() => deleteProductById(productInCart.id)}>
+                    onClick={() => deleteProductById(productInCart.id)}
+                  >
                     <FaTrashAlt />
                   </button>
                 </td>
@@ -49,15 +55,19 @@ const CartView = () => {
           <strong>TOTAL:${totalPrice()} </strong>
         </p>
       </div>
-      <div className="cart-confirmButton">
-        <Link to="/checkout">
-         <button>Confirmar Compra</button>
-        </Link>
-      </div>
-      <div className="cart-cleanCartButton">
-        <button onClick={deleteAllProductsInCart}>
-          <FaTrashAlt /> Vaciar carrito
-        </button>
+      <div className="table-footerButtons">
+        <div className="cart-confirmButton">
+          <Link to="/checkout">
+            <button>
+            <FaCheckSquare /> Confirmar Compra
+            </button>
+          </Link>
+        </div>
+        <div className="cart-cleanCartButton">
+          <button onClick={deleteAllProductsInCart}>
+            <FaTrashAlt /> Vaciar carrito
+          </button>
+        </div>
       </div>
     </div>
   );
