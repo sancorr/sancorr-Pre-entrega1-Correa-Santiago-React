@@ -4,10 +4,10 @@ import './footer.css'
 
 const Footer = () => {
   return (
-    <div className="footer-container">
+    <div className="bg-dark text-white py-3 mt-auto">
       {/* Información sobre el proyecto */}
-      <div className="footer-legend">
-        <p>
+      <div className="container text-center">
+        <p className="mb-1">
           <span>&copy; 2024 S A C - Online Ecommerce</span>
           <br />
           Este proyecto fue desarrollado con React.js, npm, Firebase, y JavaScript.
