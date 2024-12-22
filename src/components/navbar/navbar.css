@@ -1,55 +1,58 @@
 /* Alinea la imagen a la izquierda */
-.navbar .container-fluid {
+/* .navbar .container-fluid {
     display: flex;
-    align-items: center; /* Alinea verticalmente al centro */
-}
-.logo {
+    align-items: center; 
+  }
+  .logo {
     width: 80px;
     height: 85px;
     border-radius: 25px;
-}
+  } */
   
-/* Alinea los elementos de la lista al centro */
-.navbar-collapse {
-    flex-grow: 1; /* Permite que el div se expanda y empuje a CartWidget hacia la derecha */
+  /* Alinea los elementos de la lista al centro */
+ /*  .navbar-collapse {
+    flex-grow: 1; 
     display: flex;
-    justify-content: space-evenly; /* Alinea horizontalmente al centro */
-}
+    justify-content: space-between;
+    align-items: center;
+  } */
   
   /* Alinea CartWidget a la derecha */
-.navbar .cart-widget {
-    margin-left: auto; /* Empuja CartWidget hacia la derecha */
-}
-
-.navbar-nav {
-    position: relative;
+  /* .navbar .cart-widget {
+    margin-left: auto; 
+  }
+   */
+  /* .navbar-nav {
     display: flex;
+    flex-direction: row; 
     list-style: none;
     padding: 0;
     margin: 0;
-}
+    text-align: center;
+  } */
   
-.navbar-nav li{
+  /* .navbar-nav li {
     margin: 40px 60px;
     position: relative;
     color: #212529;
-}
-
-.nav-item {
+  } */
+  
+  /* .nav-item {
     text-decoration: none;
     color: #37a0bb;
     font-size: 1.3em;
     position: relative;
     display: inline-block;
     padding: 10px;
-}
-
-.nav-item:hover {
+    transition: color 0.3s;
+  } */
+  /* 
+  .nav-item:hover {
     color: #212529;
-}
-
-/* Línea animada */
-.navbar-nav::after {
+  } */
+  
+  /* Línea animada */
+  /* .navbar-nav::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -59,15 +62,15 @@
     background-color: #212529;
     transform: translateX(var(--hover-position, 0px));
     transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-    visibility: hidden; /* Oculta la línea por defecto */
-}
-
-.nav-item:hover ~ .navbar-nav::after {
+    visibility: hidden; 
+  } */
+  
+  /* .nav-item:hover ~ .navbar-nav::after {
     width: 100%;
-    visibility: visible; /* Muestra la línea cuando se hace hover en un item */
-}
-
-.nav-item:hover::before {
+    visibility: visible;
+  } */
+  
+  /* .nav-item:hover::before {
     content: "";
     position: absolute;
     bottom: -2px;
@@ -75,4 +78,83 @@
     width: 100%;
     height: 2px;
     background-color: #212529;
+  } */
+  
+  /* Alineación vertical para vista móvil */
+  /* @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column; 
+      align-items: center; 
+    }
+  
+    .navbar-nav li {
+      margin: 10px 0; 
+    }
+  
+    .navbar-collapse {
+      justify-content: center; 
+    }
+  
+
+    .navbar .cart-widget {
+      display: none;
+    }
+  
+   
+    .navbar-nav .cart-widget {
+      display: inline-block;
+      margin: 10px auto; 
+    }
+  } */
+  
+  
+/*   @media (min-width: 769px) {
+    .navbar .cart-widget {
+      display: inline-block; 
+    }
+  
+
+    .navbar-nav .cart-widget {
+      display: none; 
+    }
+  } */
+  
+
+  /* Importar la fuente desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+/* Estilo para el logo */
+.logo {
+  width: 60px; /* Tamaño más pequeño */
+  height: 60px; /* Tamaño más pequeño */
+  border-radius: 50%; /* Redondeado */
 }
+
+/* Espaciado entre logo y enlaces */
+.navbar-nav {
+  margin-left: 20px; /* Añade espacio a la izquierda */
+}
+
+/* Estilo para los enlaces de navegación */
+.nav-item .nav-link {
+  font-family: 'Poppins', sans-serif; /* Fuente moderna */
+  font-size: 1.2rem; /* Tamaño de letra más grande */
+  font-weight: 500; /* Peso intermedio para elegancia */
+  color: #212529; /* Color predeterminado */
+  text-transform: uppercase; /* Mayúsculas para un look moderno */
+  transition: color 0.3s ease-in-out; /* Animación suave al pasar el mouse */
+}
+
+/* Hover para enlaces */
+.nav-item .nav-link:hover {
+  color: #37a0bb; /* Color de acento */
+}
+
+/* Espaciado entre los enlaces */
+.nav-item {
+  margin-right: 15px; /* Espaciado entre enlaces */
+}
+
+
+

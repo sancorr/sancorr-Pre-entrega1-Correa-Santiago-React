@@ -46,15 +46,15 @@ const ItemDetailContainer = () => {
   }, [idProduct] )
 
   return (
-    <div>
+    <div className="container my-4">
       {loading ? (
         <Loading />
       ) : error ? (
-        <div>
+        <div className="text-center">
           <h2>
            {error}
           </h2>
-          <Link to="/">Volver al home</Link>
+          <Link to="/" className="btn btn-primary">Volver al home</Link>
         </div>
       ) : (
         <ItemDetail {...product} />

@@ -1,29 +1,46 @@
-import { PiCopyrightFill } from "react-icons/pi";
-import { RiTwitterXFill } from "react-icons/ri";
-import { FaFacebook } from "react-icons/fa6";
-import { BsInstagram } from "react-icons/bs";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import './footer.css'
 
 const Footer = () => {
   return (
     <div className="footer-container">
-      <p className="footer-legend">
-       <PiCopyrightFill  /> 2024 S A C - Online ecommerce
-      </p>
+      {/* Información sobre el proyecto */}
+      <div className="footer-legend">
+        <p>
+          <span>&copy; 2024 S A C - Online Ecommerce</span>
+          <br />
+          Este proyecto fue desarrollado con React.js, npm, Firebase, y JavaScript.
+        </p>
+      </div>
+
+      {/* Enlaces de contacto */}
       <div className="footer-links">
-        <Link to={"https://x.com/?mx=2"} target="blank">
-         <RiTwitterXFill className="footer-XIcon" />
-        </Link>
-        <Link to={"https://www.facebook.com/"} target="blank">
-         <FaFacebook className="footer-FbIcon" />
-        </Link>
-        <Link to={"https://www.instagram.com/"} target="blank">
-         <BsInstagram className="footer-IgIcon"/>
-        </Link>
+        <a
+          href="https://www.linkedin.com/in/santiago-correa2/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-link"
+        >
+          <FaLinkedin className="footer-icon" />
+        </a>
+        <a
+          href="https://github.com/sancorr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-link"
+        >
+          <FaGithub className="footer-icon" />
+        </a>
+        <a
+          href="mailto:correasanti1997@gmail.com"
+          className="footer-link"
+        >
+          <FaEnvelope className="footer-icon" />
+        </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Footer

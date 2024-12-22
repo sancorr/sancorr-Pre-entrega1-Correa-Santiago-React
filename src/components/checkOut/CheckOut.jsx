@@ -104,12 +104,12 @@ const CheckOut = () => {
   };
 
   return (
-    <div>
+    <div className="container mt-4">
       {idOrder ? (
-        <div className="successBuy">
+        <div className="successBuy text-center">
           <h2>Compra realizada con exito 🙂 </h2>
           <p>El ID de su compra es: {idOrder}</p>
-          <Link className="backToHome" to="/">Volver al inicio</Link>
+          <Link className="btn btn-primary" to="/">Volver al inicio</Link>
         </div>
       ) : (
         <FormView

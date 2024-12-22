@@ -3,19 +3,19 @@ import { CartContext } from "../../context/CartContext";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaCheckSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./cartView.css";
+/* import "./cartView.css"; */
 
 const CartView = () => {
   const { cart, deleteAllProductsInCart, deleteProductById, totalPrice } =
     useContext(CartContext);
 
   return (
-    <div className="table-cartTableContainer">
-      <h1 className="cart-title">Carrito</h1>
-      <div className="table-cartTable">
-        <table>
-          <thead className="table-cartTableHead">
-            <tr className="table-cartTableHeadElements dark">
+    <div>
+      <h1 className="text-center mb-4">Carrito</h1>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead className="table-dark">
+            <tr>
               <th></th>
               <th>Producto</th>
               <th>Precio</th>
@@ -24,22 +24,28 @@ const CartView = () => {
               <th></th>
             </tr>
           </thead>
-          <tbody className="table-cartTableBody">
+          <tbody>
             {cart.map((productInCart) => (
-              <tr
-                key={productInCart.id}
-                className="table-cartTableBodyElements"
-              >
+              <tr key={productInCart.id}>
                 <td>
-                  <img src={productInCart.image} alt={productInCart.name} />
+                  <img
+                    src={productInCart.image}
+                    alt={productInCart.name}
+                    className="img-thumbnail"
+                    style={{
+                      width: "75px",
+                      height: "75px",
+                      objectFit: "cover",
+                    }}
+                  />
                 </td>
                 <td>{productInCart.name}</td>
-                <td>{productInCart.price}</td>
+                <td>${productInCart.price}</td>
                 <td>x {productInCart.quantity}</td>
-                <td>{productInCart.price * productInCart.quantity}</td>
+                <td>${productInCart.price * productInCart.quantity}</td>
                 <td>
                   <button
-                    className="table-cartTableBodyElementsDeleteProductButton"
+                    className="btn btn-danger btn-sm"
                     onClick={() => deleteProductById(productInCart.id)}
                   >
                     <FaTrashAlt />
@@ -50,21 +56,15 @@ const CartView = () => {
           </tbody>
         </table>
       </div>
-      <div className="table-cartTableBodyFooterElements">
-        <p className="table-cartTableBodyFooterElements-total dark">
-          <strong>TOTAL:${totalPrice()} </strong>
+      <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-4">
+        <p className="fw-bold fs-4 mb-3 mb-sm-0">
+          TOTAL: <span className="text-success">${totalPrice()}</span>
         </p>
-      </div>
-      <div className="table-footerButtons">
-        <div className="cart-confirmButton">
-          <Link to="/checkout">
-            <button>
+        <div d-flex flex-column flex-sm-row align-items-center>
+          <Link to="/checkout" className="btn btn-success mb-2 mb-sm-0 me-2">
             <FaCheckSquare /> Confirmar Compra
-            </button>
           </Link>
-        </div>
-        <div className="cart-cleanCartButton">
-          <button onClick={deleteAllProductsInCart}>
+          <button className="btn btn-danger" onClick={deleteAllProductsInCart}>
             <FaTrashAlt /> Vaciar carrito
           </button>
         </div>

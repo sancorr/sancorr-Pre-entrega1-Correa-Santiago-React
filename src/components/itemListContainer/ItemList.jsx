@@ -1,16 +1,15 @@
 import Item from "./Item"
-import './itemList.css'
+/* import './itemList.css' */
 const ItemList = ({ products }) => {
   return (
-    <div className="prueba">
-      { products.map((product) => (
-        <div key={product.id} className="itemWrapper">
-          <Item  product= {product}/>
-
+    <>
+      {products.map((product) => (
+        <div key={product.id} className="col-12 col-sm-6 col-lg-3 mb-4">
+          <Item product={product} />
         </div>
       ))}
-    </div>
-  )
-}
+    </>
+  );
+};
 
 export default ItemList
